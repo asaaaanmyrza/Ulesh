@@ -28,7 +28,7 @@ Ulesh contributes to the UN Sustainable Development Goals:
 | Donation statistics (meals saved, weight)    | Planned  |
 
 # Documentation
-Not ready yet
+[Code of Conduct](https://github.com/asaaaanmyrza/Ulesh/blob/main/CODE_OF_CONDUCT.md)
 
 # Safety and Do No Harm
 Food donation involves real health risks, so Ulesh is built around a few principles:
