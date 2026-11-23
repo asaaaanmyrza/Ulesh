@@ -27,7 +27,7 @@ restaurants and charity organizations in Kazakhstan to reduce food waste.
 
 ## Code of Conduct
 All contributors are expected to follow our
-[Code of Conduct](CODE_OF_CONDUCT.md).
+[Code of Conduct](https://github.com/asaaaanmyrza/Ulesh/blob/main/CODE_OF_CONDUCT.md)
 
 ## License
 By contributing, you agree that your contributions will be licensed under
