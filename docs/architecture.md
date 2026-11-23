@@ -1,164 +1,127 @@
-# Ulesh System Architecture
+# Ulesh — System Architecture
 
 ## 1. Overview
 
-Ulesh is a proposed digital platform designed to connect restaurants, grocery stores, and charitable organizations to facilitate food donations and reduce food waste.
+Ulesh is a platform designed to connect restaurants with charitable organizations across Kazakhstan. Its main goal is to reduce food waste by helping restaurants donate surplus food to people in need.
 
-The platform allows food donors to publish available surplus food, while verified charitable organizations can browse listings and submit donation requests.
+The platform supports three Sustainable Development Goals:
+- **SDG 2 — Zero Hunger:** helping charitable organizations provide food to people in need.
+- **SDG 12 — Responsible Consumption and Production:** reducing food waste.
+- **SDG 17 — Partnerships for the Goals:** connecting businesses with non-profit organizations.
 
-The planned system follows a modular architecture that separates the frontend, backend, and data storage. This structure is intended to make the platform easier to maintain, extend, and adapt to different technical environments.
+This document describes the proposed system architecture and planned technical structure of Ulesh. It does not claim that all components or features have already been implemented.
 
 ## 2. Technology Stack
 
-The initial development of Ulesh is planned around the following technologies:
+The proposed technology stack includes:
 
 | Component | Technology | Purpose |
 |---|---|---|
-| Frontend | Vue.js | User interface and client-side interactions |
-| Backend | FastAPI | API endpoints and application logic |
-| Database | SQLite | Initial data storage and support for the basic application workflow |
+| Frontend | Vue.js | User interface for restaurants and charitable organizations |
+| Backend | FastAPI | API, business logic, and request processing |
+| Database | SQLite | Initial storage for user accounts, food listings, and donation requests |
 
-### 2.1. Database Scalability
+### 2.1 Database Scalability
 
-SQLite is selected for the initial development stage to support the basic application workflow with a lightweight database solution.
+SQLite is selected for the initial version of Ulesh because it is lightweight and suitable for a basic application workflow.
 
-As the platform develops and its data and user requirements grow, PostgreSQL may be considered as a future database solution to support increased scalability and more advanced database operations.
-
-The potential migration is a future consideration rather than an implemented feature.
+If the platform grows and requires more advanced database capabilities, PostgreSQL may be considered as a future alternative. Such a migration has not been implemented or confirmed.
 
 ## 3. Main System Components
 
-### 3.1. Frontend (Vue.js)
+### 3.1 Frontend — Vue.js
 
-The frontend provides the user interface through which participants interact with Ulesh.
+The frontend provides the user interface for two types of participants:
 
-The platform supports two main user categories:
+- **Restaurants:** manage their accounts and publish, edit, or cancel food donation listings.
+- **Charitable organizations:** browse available donations and submit pickup requests.
 
-- **Food Donors:** Restaurants and grocery stores that publish surplus food offers and manage donation requests.
-- **Charitable Organizations:** Verified organizations that browse available food offers and submit donation requests.
+### 3.2 Backend — FastAPI
 
-The frontend is responsible for displaying food listings, collecting user input, and communicating with the backend through API requests.
+The backend is responsible for:
+- Processing registration and login requests.
+- Managing restaurant and charity accounts.
+- Handling food donation listings.
+- Processing pickup requests.
+- Managing donation statuses.
+- Communicating with the database.
 
-### 3.2. Backend (FastAPI)
+### 3.3 Database — SQLite
 
-The backend handles the main application logic and processes requests received from the frontend.
+The database is intended to store:
+- User and organization information.
+- Restaurant donation listings.
+- Food details, quantities, and expiry information.
+- Pickup requests.
+- Donation statuses.
 
-Its planned responsibilities include:
+### 3.4 Additional Services
 
-- User registration and account management.
-- Manual verification of restaurants and charitable organizations.
-- Creating, updating, and managing food offers.
-- Submitting, reviewing, and managing donation requests.
-- Updating request statuses.
-- Enforcing access permissions based on user roles.
+The following features are considered for future development:
+- Email notifications about donation requests and status changes.
+- A map view of nearby food listings using OpenStreetMap.
 
-### 3.3. Database (SQLite)
-
-The database stores the information required for the platform's basic operations.
-
-The planned data includes:
-
-- User accounts and organization information.
-- Verification statuses.
-- Food offers, quantities, and expiration dates.
-- Storage conditions and allergen information.
-- Donation requests and their statuses.
-
-SQLite is intended for the initial development stage. PostgreSQL may be considered as the platform grows.
-
-### 3.4. Notification Service
-
-A notification component may be introduced to inform users about important events, including:
-
-- New donation requests.
-- Request approvals or rejections.
-- Changes in food offer availability.
-- Upcoming collection deadlines.
-
-This component is considered a planned extension of the system.
+These features are marked as planned in the project README.
 
 ## 4. System Workflow and Data Flow
 
-The planned interaction between the main components follows this sequence:
+The proposed workflow consists of the following steps:
 
-1. A restaurant or grocery store registers on the platform.
-2. The organization undergoes manual verification before it can publish food offers.
-3. A verified food donor publishes an offer containing food details, quantity, expiration information, storage conditions, allergen information, and collection details.
-4. The backend validates and processes the submitted information.
-5. The offer is stored in the database and becomes available to verified charitable organizations.
-6. A verified charitable organization browses available offers and submits a donation request.
-7. The food donor reviews the request and approves or rejects it.
-8. The request status is updated and communicated to the relevant participants.
-9. After approval, both parties coordinate the food collection and transfer.
+1. **Registration:** restaurants and charitable organizations create accounts.
+2. **Manual verification:** participants are verified before they can publish or request donations.
+3. **Donation listing:** a restaurant publishes information about available surplus food, including its name or description, quantity, expiry or best-before time, pickup address, and pickup window.
+4. **Browsing:** a charitable organization views available food listings.
+5. **Pickup request:** the organization submits a request for a selected donation.
+6. **Confirmation:** the restaurant reviews and confirms the request.
+7. **Collection:** the charitable organization collects the food during the agreed pickup window.
+8. **Completion:** both sides mark the donation as completed.
 
-## 5. Safety and Do No Harm
+## 5. Proposed Architecture Diagram
 
-Food donation involves potential health and safety risks. Therefore, Ulesh is designed around the following principles:
+```mermaid
+flowchart TD
+    R[Restaurant] --> F[Vue.js Frontend]
+    C[Charitable Organization] --> F
+    F --> API[FastAPI Backend]
+    API --> DB[(SQLite Database)]
+    API -.-> N[Email Notifications - Planned]
+    F -.-> M[OpenStreetMap View - Planned]
+```
 
-### 5.1. Food Safety First
+The diagram represents the proposed structure. Dashed connections indicate features planned for future development.
 
-Food donors must only publish products that are safe for consumption, correctly stored, and within their expiration or best-before dates.
+## 6. Safety and Do No Harm
 
-Responsibility for food quality remains with the donating business. Food listings must include relevant handling, storage, and allergen information.
+Ulesh follows the safety principles described in the project README:
 
-### 5.2. Verified Participants
+- **Food safety:** restaurants should only list food that is safe to eat, correctly stored, and within its expiry or best-before time. Listings should include handling and allergen information. Responsibility for food quality remains with the donating restaurant.
+- **Verified participants:** restaurants and charitable organizations are subject to manual verification before posting or claiming donations.
+- **Non-discrimination:** all verified charitable organizations should have equal access to listings, regardless of their size, location, or beneficiaries.
+- **Respectful community:** all participants and contributors are expected to follow the project's Code of Conduct.
 
-Restaurants, grocery stores, and charitable organizations must undergo manual verification before they can publish or claim food donations.
+## 7. Platform Independence
 
-This requirement is intended to reduce misuse of the platform and encourage responsible participation.
+Ulesh aims to support platform independence through the following design principles:
 
-### 5.3. Non-Discrimination
+- **Open technologies:** Vue.js, FastAPI, and SQLite are used in the proposed technology stack.
+- **Modular structure:** frontend, backend, and database responsibilities are separated.
+- **Portable data storage:** the initial database can be managed without depending on a proprietary database service.
+- **Reduced vendor dependency:** the architecture does not require a specific proprietary cloud platform.
+- **Future flexibility:** individual components may be replaced or extended as the project develops.
 
-All verified charitable organizations should have equal access to available food listings, regardless of their size, location, or the beneficiaries they serve.
-
-Ulesh does not permit discriminatory content or behavior on the platform.
-
-### 5.4. Respectful Community
-
-All platform participants and contributors are expected to follow the project's Code of Conduct and maintain respectful communication.
-
-## 6. Platform Independence
-
-Ulesh is intended to avoid dependence on a single proprietary platform or service.
-
-The proposed architecture supports platform independence through the following principles:
-
-- **Open Technologies:** The planned stack uses widely available technologies, including Vue.js, FastAPI, and SQLite.
-- **Modular Architecture:** The frontend, backend, and data storage are separated, allowing individual components to be modified or replaced.
-- **Portable Data Storage:** The system is designed to avoid unnecessary dependence on a single database provider.
-- **Replaceable Components:** External services and integrations should be replaceable without requiring a complete redesign of the platform.
-- **Open Standards:** Common communication protocols and data formats are intended to support interoperability.
-
-These principles are intended to reduce vendor lock-in and make future deployment in different environments possible.
-
-## 7. Deployment Strategy
-
-The planned deployment process separates the frontend, backend, and database components.
-
-The Vue.js frontend will provide the user-facing application, while the FastAPI backend will handle application logic and API communication. SQLite will initially store the application's data.
-
-Future deployment may involve hosting the frontend and backend independently and using a more scalable database solution if required.
-
-Specific hosting providers and deployment infrastructure have not yet been finalized.
+The project also aims to support self-hosted deployments, allowing deployment operators to control their own data and infrastructure.
 
 ## 8. Future Development
 
-The proposed architecture provides a foundation for the future development of Ulesh.
+Possible future improvements include:
+- Considering PostgreSQL if database requirements increase.
+- Adding email notifications.
+- Implementing a map view using OpenStreetMap.
+- Supporting Kazakh, Russian, and English interfaces.
+- Introducing donation statistics.
 
-Potential improvements include:
+These improvements are not presented as completed functionality.
 
-- Migrating from SQLite to PostgreSQL if scalability requirements increase.
-- Introducing a dedicated notification system.
-- Improving organization verification and account management.
-- Expanding food safety validation and monitoring.
-- Improving system performance and supporting a growing number of users.
+## 9. Summary
 
-These improvements represent possible future development directions and should not be interpreted as currently implemented functionality.
-
-## 9. Architecture Summary
-
-Ulesh follows a planned modular architecture based on Vue.js, FastAPI, and SQLite for its initial development stage.
-
-The system separates user interaction, application logic, and data management while supporting different user roles, manual organization verification, and food safety principles.
-
-Its modular structure and use of widely available technologies are intended to support maintainability, future scalability, and independence from proprietary platforms.
+The proposed Ulesh architecture uses Vue.js for the frontend, FastAPI for the backend, and SQLite for initial data storage. Its structure is designed to support the main donation workflow between restaurants and charitable organizations while considering safety, privacy, and platform independence.
