@@ -1,58 +1,112 @@
-# Ulesh User Guide
+# Ulesh — User Guide
 
 ## 1. Introduction
 
-Ulesh is a proposed food donation platform that connects restaurants with charitable organizations. Its main purpose is to reduce food waste by helping businesses share surplus food with organizations that can distribute it to people in need.
+Ulesh is designed to connect restaurants with charitable organizations across Kazakhstan. Restaurants can share surplus food, while charitable organizations can request and collect available donations.
 
-The platform is designed for two primary user groups:
-- **Restaurants:** Businesses that have surplus food available for donation.
-- **Charitable Organizations:** Organizations that request available food for distribution.
+This guide describes the intended user workflow for both types of participants.
 
-## 2. Restaurant User Guide
-
-Restaurants are expected to use Ulesh to publish information about surplus food.
+## 2. For Restaurants: Publishing a Food Donation
 
 ### Step 1. Create an Account
-A restaurant representative registers on the platform and provides the required organization information.
 
-### Step 2. Publish a Food Offer
-The restaurant creates a food offer containing:
-- Food name and description.
-- Available quantity.
-- Food category.
-- Expiration date or recommended collection deadline.
-- Storage and handling conditions.
-- Pickup location and available collection time.
+1. Open the Ulesh platform.
+2. Select the restaurant registration option.
+3. Enter the required organization and contact information.
+4. Submit the registration form.
 
-### Step 3. Review Requests
-The restaurant reviews requests submitted by charitable organizations and selects an appropriate request.
+### Step 2. Complete Verification
 
-### Step 4. Confirm the Donation
-The restaurant confirms the selected request and coordinates the food collection with the organization.
+1. Wait for the manual verification process.
+2. Once verified, access the restaurant account.
+3. Use the platform to manage donation listings.
 
-## 3. Charitable Organization User Guide
+### Step 3. Publish a Food Donation
 
-Charitable organizations are expected to use Ulesh to find and request available food donations.
+1. Open the donation listing section.
+2. Select the option to create a new donation.
+3. Enter the required information:
+   - Food name or description.
+   - Available quantity.
+   - Expiry date or best-before time.
+   - Pickup address.
+   - Available pickup time window.
+   - Food handling and allergen information.
+4. Review the information.
+5. Submit the listing.
+
+### Step 4. Manage Requests
+
+1. Review incoming pickup requests from charitable organizations.
+2. Check the requested donation.
+3. Confirm or reject the request.
+4. Coordinate collection during the agreed pickup window.
+
+### Step 5. Complete the Donation
+
+After the food has been collected, mark the donation as completed.
+
+## 3. For Charitable Organizations: Requesting a Food Donation
 
 ### Step 1. Create an Account
-An organization representative registers and provides relevant organization information.
 
-### Step 2. Browse Available Food
-The organization views published food offers and checks their descriptions, quantities, collection deadlines, and storage conditions.
+1. Open the Ulesh platform.
+2. Select the charitable organization registration option.
+3. Enter the required organization and contact information.
+4. Submit the registration form.
 
-### Step 3. Submit a Request
-The organization selects a suitable offer and submits a request indicating the required quantity and relevant information.
+### Step 2. Complete Verification
 
-### Step 4. Receive Confirmation
-The organization waits for the restaurant to review and confirm the request.
+1. Wait for manual verification.
+2. Once verified, access the organization's account.
+3. Browse available food donations.
+
+### Step 3. Browse Available Donations
+
+1. Open the available donations section.
+2. Review the published food listings.
+3. Check important details, including:
+   - Food description and quantity.
+   - Expiry or best-before time.
+   - Pickup address.
+   - Pickup time window.
+   - Handling and allergen information.
+
+### Step 4. Submit a Pickup Request
+
+1. Select a suitable donation.
+2. Review its details.
+3. Submit a pickup request.
+4. Wait for the restaurant to confirm the request.
 
 ### Step 5. Collect the Food
-After confirmation, both parties coordinate the collection according to the agreed time and conditions.
 
-## 4. Important Food Safety Considerations
+1. Check the confirmed pickup details.
+2. Collect the food during the agreed time window.
+3. After collection, mark the donation as completed.
 
-Only food considered suitable for donation should be offered through the platform. Restaurants and charitable organizations should pay attention to expiration dates, storage conditions, and safe transportation.
+## 4. Food Safety Guidelines
 
-## 5. Current Project Status
+Food safety is a key principle of Ulesh.
 
-Ulesh is currently a project concept for the SIS №12 assignment. The user scenarios described in this guide represent planned functionality and should not be interpreted as already implemented features.
+Restaurants should:
+- List only food that is safe to eat.
+- Ensure that food has been correctly stored.
+- Check that food is within its expiry or best-before time.
+- Provide relevant handling and allergen information.
+
+Responsibility for food quality remains with the donating restaurant.
+
+## 5. Community Guidelines
+
+All participants are expected to:
+- Treat other participants respectfully.
+- Avoid discriminatory content or behavior.
+- Follow the project's Code of Conduct.
+- Use the platform for its intended purpose: coordinating food donations.
+
+## 6. Important Note
+
+Ulesh is a student project. This guide describes the intended user workflow and should not be interpreted as confirmation that every described feature is currently available or implemented.
+
+Some additional features, such as email notifications and a map view of nearby donations, are planned for future development.
