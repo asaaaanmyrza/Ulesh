@@ -30,6 +30,10 @@ Ulesh contributes to the UN Sustainable Development Goals:
 # Documentation
 [Code of Conduct](https://github.com/asaaaanmyrza/Ulesh/blob/main/CODE_OF_CONDUCT.md)
 [Privacy and Data Collection Plan](https://github.com/asaaaanmyrza/Ulesh/blob/main/PRIVACY.md)
+[Licence](https://github.com/asaaaanmyrza/Ulesh/blob/main/LICENSE)
+[Contribution](https://github.com/asaaaanmyrza/Ulesh/blob/main/CONTRIBUTING.md)
+[System Architecture](https://github.com/asaaaanmyrza/Ulesh/blob/main/docs/architecture.md)
+[User Guidelines](https://github.com/asaaaanmyrza/Ulesh/blob/main/docs/user-guide.md)
 
 # Safety and Do No Harm
 Food donation involves real health risks, so Ulesh is built around a few principles:
@@ -49,7 +53,7 @@ Ulesh follows a data-minimization approach:
 To report a security issue, please email the maintainers (see Contact) instead of opening a public issue.
 
 # Contributing
-Contributions are welcome. Please read CONTRIBUTING.md for how to report bugs, suggest features, and submit pull requests. By participating you agree to follow our Code of Conduct.
+Contributions are welcome. Please read [CONTRIBUTING.md](https://github.com/asaaaanmyrza/Ulesh/blob/main/CONTRIBUTING.md) for how to report bugs, suggest features, and submit pull requests. By participating you agree to follow our Code of Conduct.
 
 # License and Ownership
 Ulesh is licensed under the MIT License.
